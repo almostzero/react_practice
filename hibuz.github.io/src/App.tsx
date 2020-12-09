@@ -9,6 +9,7 @@ import PublicGoogleSheetsParser from 'public-google-sheets-parser';
 import Spinner from 'react-spinkit';
 
 import StockList from './components/StockList';
+import { parseJsonSourceFileConfigFileContent } from 'typescript';
 
 const App = () => {
   const [stockList, setStockList] = useState(null);
@@ -16,7 +17,8 @@ const App = () => {
   function fetchStockData() {
 
     const parser = new PublicGoogleSheetsParser();
-    parser.parse(atob('MWFYem5zOW1ndWNXZjJodjBuT1JuRnFtTjZLdXhObDlGVEZYaklITlllZzQ'))
+    // parser.parse(atob('MWFYem5zOW1ndWNXZjJodjBuT1JuRnFtTjZLdXhObDlGVEZYaklITlllZzQ'))
+    parser.parse('1rYYYGe_tOb0ilnwXWN6QtVzMgL48BMPBlUYOWbFLeBY')
       .then((res: any) => {
         const data = res.sort((a: any, b: any) => a.id > b.id ? 1 : -1)
           .slice(0, 20);
@@ -50,7 +52,7 @@ const App = () => {
     <div>
       <Toolbar disableGutters>
         <Typography variant="h6">
-          전세계 기업 시총 TOP20
+          라퓨타 250
         </Typography>
         <Typography variant="caption" className={classes.date} noWrap>
           {today()} <a href="https://github.com/hibuz/hibuz.github.io/issues/new" style={{textDecoration: 'none'}}>❔</a>

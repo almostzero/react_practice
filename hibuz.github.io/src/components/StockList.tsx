@@ -4,48 +4,62 @@ import { DataGrid, ColDef, CellParams, RowParams } from '@material-ui/data-grid'
 
 const columns: ColDef[] = [
   { field: 'id',
-    headerName: '순위',
-    description: 'USD 시가총액 기준 순위',
+    headerName: 'id',
+    description: '설치 우선순위',
     width: 62
   },
-  { field: 'name_ko',
-    headerName: '기업',
+  { field: '속성',
+    headerName: '속성',
     headerAlign: 'center',
+    description: '필수/선택',
     width: 140,
-    renderCell: (params: CellParams) => (
-      <Company name={params.value} logo={params.getValue('logo')} />
-    )
+    // renderCell: (params: CellParams) => (
+      // <Company name={params.value} logo={params.getValue('logo')} />
+    // )
   },
   {
-    field: 'marketcap_krw',
-    headerName: '시가총액(₩)',
-    description: '반올림된 USD기준 실시간 원화 환율을 적용 후 반올림',
+    field: '가입계정',
+    headerName: '가입계정',
+    description: 'BZ_DF1/???/???',
     width: 112,
     cellClassName: 'align-right',
     sortable: false,
-    valueFormatter: ({value}) => Number(value).toLocaleString() + '조원'
+    // valueFormatter: ({value}) => Number(value).toLocaleString() + '조원'
   },
   {
-    field: 'marketcap_usd',
-    headerName: '시가총액($)',
-    description: 'USD 통화 종목이 아닌경우 실시간 달러 환율 적용 후 반올림',
+    field: 'PC프로그램',
+    headerName: 'PC프로그램',
+    description: '프로그램 이름',
     width: 134,
     cellClassName: 'align-right',
     sortable: false,
-    valueFormatter: ({value}) =>
-      (Number(value) < 10000 ? Number(value).toLocaleString()
-        : Math.floor(Number(value)/10000) + '조' + Number(String(value).substr(1)).toLocaleString()) + '억달러'
+    // valueFormatter: ({value}) =>
+    //   (Number(value) < 10000 ? Number(value).toLocaleString()
+    //     : Math.floor(Number(value)/10000) + '조' + Number(String(value).substr(1)).toLocaleString()) + '억달러'
   },
-  { field: 'company', headerName: '영문이름', width: 250 },
-  { field: 'price',
-    headerName: '주가',
-    width: 90,
+  { 
+    field: '추가설치/제품키', 
+    headerName: '추가설치/제품키',
+    width: 250 
+    },
+  { 
+    field: '001_다운로드',
+    headerName: '001_다운로드',
+    width: 150,
     cellClassName: 'align-right',
     headerAlign: 'right',
-    valueFormatter: ({value}) => Number(value).toLocaleString()
+    // valueFormatter: ({value}) => Number(value).toLocaleString()
  },
- { field: 'currency', headerName: '통화', width: 65 },
- { field: 'exchange', headerName: '거래소', width: 100 },
+ { 
+   field: '002_사용자매뉴얼', 
+   headerName: '002_사용자매뉴얼', 
+   width: 150
+  },
+ {
+    field: '003_유튜브영상', 
+    headerName: '003_유튜브영상',
+    width: 150
+  },
 ];
 
 function Company(props: any){
