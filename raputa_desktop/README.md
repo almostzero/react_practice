@@ -1,3 +1,10 @@
+![Deploy](https://github.com/hibuz/hibuz.github.io/workflows/Deployment/badge.svg)
+
+![screenshot](.github/screenshot.png)
+
+# Google Sheets
+![googlesheets](.github/googlesheets.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
