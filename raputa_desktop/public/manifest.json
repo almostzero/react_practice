@@ -1,6 +1,7 @@
 {
-  "short_name": "Marketcap App",
-  "name": "Marketcap App",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "name": "Raputa Desktop App",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,8 +14,7 @@
       "sizes": "120x120"
     }
   ],
+  "short_name": "Raputa Desktop App",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#000000"
 }

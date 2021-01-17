@@ -1,60 +1,59 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { DataGrid, ColDef, CellParams, RowParams } from '@material-ui/data-grid';
+import { ColDef, DataGrid, RowParams } from '@material-ui/data-grid';
+import React from 'react';
 
 const columns: ColDef[] = [
-  { field: 'id',
+  {
+    field: 'id',
     headerName: '순위',
-    description: 'USD 시가총액 기준 순위',
-    width: 62
+    description: 'description',
+    width: 100
   },
-  { field: 'name_ko',
-    headerName: '기업',
+  {
+    field: '속성',
+    headerName: '속성',
     headerAlign: 'center',
-    width: 140,
-    renderCell: (params: CellParams) => (
-      <Company name={params.value} logo={params.getValue('logo')} />
-    )
+    width: 100
   },
   {
-    field: 'marketcap_krw',
-    headerName: '시가총액(₩)',
-    description: '반올림된 USD기준 실시간 원화 환율을 적용 후 반올림',
-    width: 140,
+    field: '가입계정',
+    headerName: '가입계정',
+    description: 'description',
+    width: 150,
     cellClassName: 'align-right',
-    sortable: false,
-    valueFormatter: ({value}) => Number(value).toLocaleString() + '조원'
+    sortable: false
   },
   {
-    field: 'marketcap_usd',
-    headerName: '시가총액($)',
-    description: 'USD 통화 종목이 아닌경우 실시간 달러 환율 적용 후 반올림',
-    width: 134,
+    field: 'PC프로그램',
+    headerName: 'PC프로그램',
+    description: 'description',
+    width: 200,
     cellClassName: 'align-right',
-    sortable: false,
-    valueFormatter: ({value}) =>
-      (Number(value) < 10000 ? Number(value).toLocaleString()
-        : Math.floor(Number(value)/10000) + '조' + Number(String(value).substr(1)).toLocaleString()) + '억달러'
+    sortable: false
   },
-  { field: 'company', headerName: '영문이름', width: 250 },
-  { field: 'price',
-    headerName: '주가',
-    width: 90,
+  { field: '추가설치/제품키', headerName: '추가설치/제품키', width: 200 },
+  {
+    field: '001_공유드라이브에서 다운로드',
+    headerName: '001_공유드라이브에서 다운로드',
+    width: 200,
     cellClassName: 'align-right',
-    headerAlign: 'right',
-    valueFormatter: ({value}) => Number(value).toLocaleString()
- },
- { field: 'currency', headerName: '통화', width: 65 },
- { field: 'exchange', headerName: '거래소', width: 100 },
+    headerAlign: 'right'
+  },
+  {
+    field: '002_사용자매뉴얼 (교육자료실)',
+    headerName: '002_사용자매뉴얼 (교육자료실)',
+    width: 200
+  },
+  { field: '003_유튜브 영상', headerName: '003_유튜브 영상', width: 200 },
 ];
 
-function Company(props: any){
+function Company(props: any) {
 
   let img = '' + props.logo;
   if (!img.startsWith('http')) {
     img = 'https://' + props.logo + '/favicon.ico';
   }
-  return <div><img width="15" src={img} alt={props.name}/> <span>{props.name}</span></div>
+  return <div><img width="15" src={img} alt={props.name} /> <span>{props.name}</span></div>
 };
 
 const useStyles = makeStyles({
@@ -67,7 +66,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function StockList({rows}: any) {
+export default function StockList({ rows }: any) {
 
   const classes = useStyles();
 
